@@ -7,3 +7,8 @@ Knapsack
 To identify dp, ALWAYS:
 1 choice 
 2 optimal
+
+
+In recursion: 
+1 always think of base condition.....things we can get on minimizing the input
+2 write code for the choice diagram
