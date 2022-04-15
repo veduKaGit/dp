@@ -1,0 +1,4 @@
+Knapsack
+1 0/1 : dp
+2 unbounded: dp
+3 fractional: GREEDY
