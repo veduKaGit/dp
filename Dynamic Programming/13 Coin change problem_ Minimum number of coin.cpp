@@ -12,7 +12,7 @@ int getMinNumberOfCoins(int coins[], int n, int sum) {
 				t[i][j] = 0;
 			if (i == 0)
 				t[i][j] = INF;
-			if (i == 1) {
+			if (i == 1) {                          //here we Initialize 2 rows! see video no. 17 and 18
 				if (j % coins[i - 1] == 0)
 					t[i][j] = j / coins[i - 1];
 				else
