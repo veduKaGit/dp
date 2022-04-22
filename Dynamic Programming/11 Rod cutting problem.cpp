@@ -13,7 +13,7 @@ int getMaxProfit(int length[], int price[], int n, int L) {
 		for (int j = 1; j <= L; j++) {
 			if (length[i - 1] <= j) {
 				dp[i][j] = max(dp[i - 1][j],
-				               price[i - 1] + dp[i][j - length[i - 1]]);
+				               price[i - 1] + dp[i][j - length[i - 1]]); // NOT + dp[i-1][j - length[i - 1]]); since unbounded knapsack
 			}
 			else
 				dp[i][j] = dp[i - 1][j];
