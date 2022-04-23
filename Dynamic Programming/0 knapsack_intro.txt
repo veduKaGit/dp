@@ -4,6 +4,13 @@ Knapsack
 3 fractional: GREEDY
 
 
+3 ways to solve
+1 Recursion
+2 Momoization/ Bottom Up (Recursion + Table)
+3 Top down (Only table)
+
+
+
 KNAPSACK IDENTIFICATION: 
 1 Always a weight array and some optimal(max/min) asked
 2 We always have a choice to accept/reject the element.
