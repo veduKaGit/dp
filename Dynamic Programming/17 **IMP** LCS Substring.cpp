@@ -18,7 +18,7 @@ int LCSubstr(string X, string Y, int n, int m) {
 			else
 				dp[i][j] = 0; // variation from LCS(DP)
 
-	int mx = INT_MIN;
+	int mx = INT_MIN;  //**IMP DIFFERENCE**...since in the else part above, we returned zero (instead of max/min), thus we calculate max separately and return it as the final ans
 	for (int i = 0; i <= n; i++)
 		for (int j = 0; j <= m; j++)
 			mx = max(mx, dp[i][j]);
