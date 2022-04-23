@@ -1,15 +1,32 @@
-Knapsack
-1 0/1 : dp
-2 unbounded: dp
-3 fractional: GREEDY
+In recursion: 
+1 always think of base condition.....things we can get on minimizing the input
+2 write code for the choice diagram
 
 
-3 ways to solve
+
+3 ways to solve DP
 1 Recursion
 2 Momoization/ Bottom Up (Recursion + Table)
 3 Top down (Only table)
 
+To identify dp, ALWAYS:
+1 choice 
+2 optimal
 
+
+
+Types of base problems
+1 Knapsack
+2 Longest common subsequence (LCS)
+3 
+
+
+
+
+Knapsack
+1 0/1 : dp
+2 unbounded: dp
+3 fractional: GREEDY
 
 KNAPSACK IDENTIFICATION: 
 1 Always a weight array and some optimal(max/min) asked
@@ -18,11 +35,3 @@ KNAPSACK IDENTIFICATION:
 
 
 
-To identify dp, ALWAYS:
-1 choice 
-2 optimal
-
-
-In recursion: 
-1 always think of base condition.....things we can get on minimizing the input
-2 write code for the choice diagram
