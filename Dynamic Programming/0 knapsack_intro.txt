@@ -4,6 +4,13 @@ Knapsack
 3 fractional: GREEDY
 
 
+KNAPSACK IDENTIFICATION: 
+1 Always a weight array and some optimal(max/min) asked
+2 We always have a choice to accept/reject the element.
+3 T[n+1][W+1] ka matrix is formed...n is the size of array....W is the max weight/capacity of knapsack.
+
+
+
 To identify dp, ALWAYS:
 1 choice 
 2 optimal
