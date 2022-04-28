@@ -1,10 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+//THE CODE IS VERY VERY SIMILAR TO PRINT LONGEST COMMON SUBSEQUENCE...TILL LINE 39
+
+
 string SCS(string X, string Y, int n, int m) {
 	int dp[n + 1][m + 1]; // DP - matrix
 
-	// base case of recursion --> for initialization of dp - matrix
+	//I GOT A DOUBT IN INITIALIZATION.....when n==0, then we should return m....ie when i==0, all j's should be m
+	//similarly when m==0, then we should return n....ie when j==0, all i's should be n
+	//and only when i==0 && j==0, dp[0][0] should be 0
+	//The above 3 lines...this is what i thought about initialization....NOTHING WRONG!
+	//but we did NOT do it. Why?
+	//See while loop on line 35...we are using backtracking to make the string....so initializing with zeroes is a good idea
+	//because the the base condition of while loop becomes simple...thats it!
+	//otherwise there was no issue with my way of initialization, but then the base condition of while loop becomes ugly.
 	for (int i = 0; i <= n; i++)
 		for (int j = 0; j <= m; j++)
 			if (i == 0 || j == 0)
@@ -19,12 +30,14 @@ string SCS(string X, string Y, int n, int m) {
 
 	int i = n, j = m;
 	string scs = "";
-	while (i > 0 && j > 0) {
+	
+	//this is the backtracking loop
+	while (i > 0 && j > 0) {  
 		if (X[i - 1] == Y[j - 1]) { // when char are eqaul from table obs 
 			scs += X[i - 1]; // take only once 
 			i--, j--; // and decrement both
-		}
-		else if (dp[i][j - 1] > dp[i - 1][j]) {
+		}  //TILL THIS LINE, THE CODE WAS SAME AS PRINT THE LONGEST COMMON SUBSEQUENCE !!!!!!!!!!
+		else if (dp[i][j - 1] > dp[i - 1][j]) {   
 			scs += Y[j - 1]; // in this we will take the charecter to string 
 			j--;
 		}
