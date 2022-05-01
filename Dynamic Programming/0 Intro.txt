@@ -18,13 +18,12 @@ To identify dp, ALWAYS:
 Types of base problems
 1 Knapsack
 2 Longest common subsequence (LCS)
-3 
-
+3 Matrix chain multiplication (MCM)
 
 
 ----------------------------------------------------
 
-Knapsack
+Knapsack types
 1 0/1 : dp
 2 unbounded: dp
 3 fractional: GREEDY
@@ -42,4 +41,9 @@ LCS INDENTIFICATION:
 
 ----------------------------------------------------
 
-
+MCM INDENTIFICATION:
+1 we fix i and j first(j>=i)
+2 then we need to iterate a variable K b/w the i and j
+3 this will return a temp answer
+4 we will calculate final ans using these returned values
+5 there can be many variations to this
