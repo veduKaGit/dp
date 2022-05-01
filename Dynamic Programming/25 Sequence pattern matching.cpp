@@ -1,3 +1,9 @@
+// basically we need to find if string a is a subsequence of string b
+// my approach: we can simply find LCS of the strings, if LCS string == string a, then return true
+// aditya verma approach: simply find length of LCS, if length == a.length(), return true
+// both approaches are same logically.
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
