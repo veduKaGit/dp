@@ -6,7 +6,7 @@ In recursion:
 
 3 ways to solve DP
 1 Recursion
-2 Momoization/ Bottom Up (Recursion + Table)
+2 Momoization/ Bottom Up (Recursion + Table)....in memoization, matrix is formed from the parameters of the function which change every time
 3 Top down (Only table)
 
 To identify dp, ALWAYS:
