@@ -47,3 +47,4 @@ MCM INDENTIFICATION:
 3 this will return a temp answer
 4 we will calculate final ans using these returned values
 5 there can be many variations to this
+6 MY OBSERVATION...MCM MEI RECURSIVE CODE MEI BHI FOR LOOP LAGTI HAI!!!!!!!!!!!!!!!!!
