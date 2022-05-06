@@ -14,7 +14,7 @@ int Solve(int arr[], int i, int j) {
 		return t[i][j]; 
 
 	int ans = INT_MAX;
-	for (int k = i; k <= j - 1; k++) {
+	for (int k = i; k <= j - 1; k++) { //Theres a for loop in MCM memoization!
 		int temp_ans = Solve(arr, i, k) + Solve(arr, k + 1, j) + arr[i - 1] * arr[k] * arr[j];
 		ans = min(ans, temp_ans);
 	}
