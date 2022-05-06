@@ -65,7 +65,7 @@ int MatrixChainOrder(int p[], int n)
 		{
 			j = i + L - 1;
 			m[i][j] = INT_MAX;
-			for (k = i; k <= j - 1; k++)
+			for (k = i; k <= j - 1; k++)//3 loops...logical...in memoization...1 foor loop (extra)...so tabular approach also has 1 extra loop
 			{
 				q = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
 				if (q < m[i][j])
@@ -74,7 +74,7 @@ int MatrixChainOrder(int p[], int n)
 		}
 	}
 
-	return m[1][n - 1]; //NOT m[n-1][n-1]
+	return m[1][n - 1]; //NOT m[n-1][n-1] //**IMP**
 }
 
 
