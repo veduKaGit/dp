@@ -2,7 +2,7 @@
 using namespace std;
 
 const int D = 1001;
-int dp[2][D][D]; // i,j and istrue and false is changing 
+int dp[2][D][D]; // i,j and istrue is changing 
 
 int Solve(string X, int i, int j, bool isTrue) {
 	if (i >= j) {
