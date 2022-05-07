@@ -1,4 +1,27 @@
-// https://www.geeksforgeeks.org/count-of-subsets-with-sum-equal-to-x/
+// The method fails when the input array has any zeros. 
+// For eg: n=3, sum=0.
+// We can have a set here as {0,1,2}, so there'll be subsets of {} and {0} possible hence count will be 2. 
+// This is true for multiple other input arrays where actually count >1 for sum=0, but we initialized count=1 for all input arrays when sum=0. 
+
+// Here's a small fix I found to the issue:
+
+// We initialize the FIRST COLUMN(j==0) of the array acc to the formula: 2 ^ (no of zeros in the array AT THAT SIZE).
+
+// Hence, for eg: arr={0,0,1,0}, sum=0
+// For n=0, value will be 2^0 = 1, i.e {} 
+// For n=1, value will be 2^1 = 2, i.e. {} and {0}
+// For n=2, value will be 2^2= 4, i.e. {}, {0}, {0} and {0,0} 
+// For n=3, value will be 2^2 = 4, i.e. {}, {0], {0}, and {0,0}
+// For n=4, value will be 2^3 = 8 i.e. {}, .............., {0,0,0}
+
+//so the matrix will be (4+1)*(4+1) size, and the (j==0) column will be initialized as 1, 2, 4, 4, 8
+
+// Reason: 
+// In the sum of subset problem, we simply needed to return whether or not a set exists for sum=0, which was always True as empty set {} was always existing. 
+// Here, we need to return COUNT of subsets for sum=0 (for first column), which will include all possible subsets in the array which add up to 0.
+	
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
