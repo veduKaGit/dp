@@ -29,6 +29,8 @@
 // return (int)Math.pow(2, number of 0s) * dp[nums.length][target] ;
 
 
+//ABOVE EXPLANATION IS CORRECT, BUT INSTEAD OF DOING ALL THIS, I SIMPLY MADE A CHANGE IN THE INITIALIZATION WHICH WORKS PERFECT:
+
 
 class Solution {
 public:
@@ -37,18 +39,18 @@ public:
 	int t[n + 1][sum + 1]; // DP - matrix
 	// initialization
 	t[0][0] = 1;
-	int k = 1;
+	int k = 1; //to count no. of zeroes till ith index of the array
 	for (int i = 0; i <= n; i++) {
 		for (int j = 0; j <= sum; j++) {
 			if (i == 0 && j > 0)
 				t[i][j] = 0;
-			if (j == 0 && i > 0) {
-				if (nums[i - 1] == 0) {
-					t[i][j] = pow(2, k);
+			if (j == 0 && i > 0) { //instead of putting all t[i][j]=0 for (j == 0 && i > 0) , we do this
+				if (nums[i - 1] == 0) { 
+					t[i][j] = pow(2, k);//if nums[i-1] is zero, simply initialize t[i][j] as pow(2,total zeroes till now)
 					k++;
 				}
 				else
-					t[i][j] = t[i - 1][j];
+					t[i][j] = t[i - 1][j]; //else this...
 			}
 		}
 	}
@@ -70,7 +72,7 @@ public:
 	for (int i = 0; i < n; i++)
 		sumOfArray += nums[i];
 
-	if ((sumOfArray + diff) % 2 != 0)  //if odd, simply return 0 ****IMP*****
+	if(((sumOfArray + diff) % 2 != 0)||((sumOfArray + diff)<0))  //if odd or ((sumOfArray + diff)<0), simply return 0 ****IMP*****
 		return 0;
 	else
 		return CountSubsetsWithSum(nums, (sumOfArray + diff) / 2);
