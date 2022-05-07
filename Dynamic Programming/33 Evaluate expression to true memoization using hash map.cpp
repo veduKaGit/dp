@@ -52,7 +52,7 @@ int Solve(string X, int i, int j, bool isTrue) {
 
 signed main() {
 	string X; cin >> X;
-	ump.clear();
+	ump.clear();   //SUPER IMP LINE....ISKE BINA ERROR AA RHA THA....always remember abt this and memset(in tabular dp)!
 	cout << Solve(X, 0, X.length() - 1, true) << endl;
 	return 0;
 }
