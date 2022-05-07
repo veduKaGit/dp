@@ -1,3 +1,5 @@
+//good ques...must watch video
+
 #include <bits/stdc++.h>
 using namespace std;
 
