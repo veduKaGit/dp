@@ -1,3 +1,5 @@
+//find min no. of cuts in the string to make it palindrome 
+
 #include <bits/stdc++.h>
 using namespace std;
 
