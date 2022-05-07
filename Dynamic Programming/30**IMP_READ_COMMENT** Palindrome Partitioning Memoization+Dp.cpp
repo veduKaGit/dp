@@ -65,13 +65,7 @@ int main() {
 
 
 
-
-
-
-
-
-
-
+// DP apporach:
 
 
 
@@ -96,6 +90,9 @@ int minPalPartion(char* str)
 
 	/* L is substring length. Build the solution in bottom up manner by
 	considering all substrings of length starting from 2 to n. */
+	
+	//here in for loop, we have used a very smart optimization...instead of 3 loops, we finished our work in 2 loops...how?
+	// since we calculated the C array separately, and did not use k
 	for (L = 2; L <= n; L++) {
 		// For substring of length L, set different possible starting indexes
 		for (i = 0; i < n - L + 1; i++) {
@@ -109,7 +106,7 @@ int minPalPartion(char* str)
 				P[i][j] = (str[i] == str[j]) && P[i + 1][j - 1];
 		}
 	}
-
+	
 	for (i = 0; i < n; i++) 
 	{
 		if (P[0][i] == true) //why P[0][i]...since we are considering our string from 0 till index i 
@@ -120,7 +117,7 @@ int minPalPartion(char* str)
 			for (j = 0; j < i; j++) //since we have condn of j<i, else return 0
 			{ 
 				if (P[j + 1][i] == true && (1 + C[j] < C[i])) //if (j+1 to i) is a palindrome, and (1 + C[j] < C[i]) then...
-					C[i] = 1 + C[j];                          //C[i] = 1 + c[j]...means 1 extra cut required since (j+1 to i) is palindrome
+					C[i] = 1 + C[j];                      //C[i] = 1 + c[j]...means 1 extra cut required since (j+1 to i) is palindrome
 			}                                                 //and add c[j] (no. of cuts required to make (0 to j) a palindrome)
 		}
 	}
