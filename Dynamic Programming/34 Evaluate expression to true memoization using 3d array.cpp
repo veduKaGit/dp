@@ -52,8 +52,8 @@ int Solve(string X, int i, int j, bool isTrue) {
 int main() {
 	string X; cin >> X;
 
-	memset(dp[0], -1, sizeof(dp[0]));
-	memset(dp[1], -1, sizeof(dp[1]));
+	memset(dp[0], -1, sizeof(dp[0]));  //*IMP*....DONT forget
+	memset(dp[1], -1, sizeof(dp[1]));  //*IMP*....DONT forget
 
 	cout << Solve(X, 0, X.length() - 1, true) << endl;
 	return 0;
