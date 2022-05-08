@@ -1,7 +1,9 @@
+//total 5 parts of changes in the recursive code
+
 #include <bits/stdc++.h>
 using namespace std;
 
-unordered_map<string, int> ump;
+unordered_map<string, int> ump;  //1
 
 bool Solve(string X, string Y) {
 	
@@ -23,15 +25,15 @@ bool Solve(string X, string Y) {
 	
 	
 	string key = X + " " + Y;
-	if (ump.find(key) != ump.end()) // if we did not found the and travesed upto end of the map 
+	if (ump.find(key) != ump.end()) // 2
 		return ump[key];
 
 	if (X.compare(Y) == 0) {
-		ump[key] = true;
+		ump[key] = true;  //3
 		return true;
 	}
 	if (X.length() <= 1) {
-		ump[key] = false;
+		ump[key] = false;  //3
 		return false;
 	}
 
@@ -45,13 +47,13 @@ bool Solve(string X, string Y) {
 		}
 	}
 
-	return ump[key] = flag; // store in table for further reference 
+	return ump[key] = flag; // 4
 }
 
 int main() {
 	string X, Y; cin >> X >> Y;
 
-	ump.clear();
+	ump.clear();   //5...............this is ******VV.IMP*******
 
 	if (X.length() != Y.length())
 		cout << "No\n";
