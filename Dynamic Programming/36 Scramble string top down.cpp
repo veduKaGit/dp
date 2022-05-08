@@ -4,6 +4,24 @@ using namespace std;
 unordered_map<string, int> ump;
 
 bool Solve(string X, string Y) {
+	
+	int arr[256] = {};
+	int brr[256] = {};
+	for(int i=0;i<X.length();i++)
+	{
+		arr[X[i]]++;	
+	}
+	for(int i=0;i<Y.length();i++)
+	{
+		brr[Y[i]]++;	
+	}
+	for(int i=0;i<256;i++)
+	{
+		if(arr[i]!=brr[i])
+			return false;
+	}
+	
+	
 	string key = X + " " + Y;
 	if (ump.find(key) != ump.end()) // if we did not found the and travesed upto end of the map 
 		return ump[key];
