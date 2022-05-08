@@ -2,6 +2,25 @@
 using namespace std;
 
 bool Solve(string X, string Y) {
+	
+	int arr[256];
+	int brr[256];
+	for(int i=0;i<X.length();i++)
+	{
+		arr[X[i]]++;	
+	}
+	for(int i=0;i<Y.length();i++)
+	{
+		brr[Y[i]]++;	
+	}
+	for(int i=0;i<256;i++)
+	{
+		if(arr[i]!=brr[i])
+			return false;
+	}
+	
+	
+	
 	if (X.compare(Y) == 0)  //base case
 		return true;
 	if (X.length() <= 1)  //for length ==0, return false
