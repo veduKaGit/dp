@@ -3,7 +3,7 @@ using namespace std;
 
 bool Solve(string X, string Y) {
 	
-	int arr[256];
+	int arr[256]; //line 6 to 20 are just for reducing the time and memory, nothing else
 	int brr[256];
 	for(int i=0;i<X.length();i++)
 	{
