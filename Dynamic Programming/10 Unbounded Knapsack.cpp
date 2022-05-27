@@ -9,7 +9,7 @@ int Un_knapsack(int wt[], int val[], int W, int n) {
 			if (i == 0 || j == 0) // base case
 				t[i][j] = 0;
 			else if (wt[i - 1] <= j) { // current wt can fit in bag
-				int val1 = val[i - 1] + t[i][j - wt[i - 1]]; // take current wt
+				int val1 = val[i - 1] + t[i][j - wt[i - 1]]; //t[i-1][j - wt[i - 1]] ki jagah t[i][j - wt[i - 1]]...rest is same as 0/1 knapsack
 				int val2 = t[i - 1][j]; // skip current wt
 				t[i][j] = max(val1, val2);
 			}
