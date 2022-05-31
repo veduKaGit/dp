@@ -1,4 +1,7 @@
+//question:
 // https://leetcode.com/problems/01-matrix/
+
+//dp applied twice!...basically loop applied twice!!!!!
 
 class Solution {
 public:
