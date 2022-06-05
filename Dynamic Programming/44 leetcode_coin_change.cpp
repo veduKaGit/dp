@@ -5,6 +5,8 @@
 
 //this logic: O(n * size_of_coins_vector)
 
+// explanation:
+// https://www.youtube.com/watch?v=H9bfqozjoqs
 
 class Solution {
 public:
