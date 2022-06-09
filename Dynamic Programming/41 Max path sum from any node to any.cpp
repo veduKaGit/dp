@@ -17,12 +17,12 @@ public:
         if (root == NULL)
             return 0;
 
-        int l = Solve(root->left);
-        int r = Solve(root->right);
+        int l = Solve(root->left); //think deeply...its max sum starting from the root->left node...since we want a continuous path
+        int r = Solve(root->right); //think deeply...its max sum starting from the root->right node...since we want a continuous path
 
-        int temp = max(root->val + max(l, r), root->val);
-        int ans = max(temp, l + r + root->val);
-        res = max(res, ans);
+        int temp = max( root->val+max(l, r) , root->val); //considering max sum is through the parent node...also considering if there are -ive value nodes
+        int ans = max(temp, l+r+ root->val); //considering max sum is through current node
+        res = max(res, ans); //this is our main ans
 
         return temp;
     }
