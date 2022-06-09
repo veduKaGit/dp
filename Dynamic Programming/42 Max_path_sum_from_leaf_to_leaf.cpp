@@ -41,9 +41,6 @@ int maxPathSum(Node* root)
 
 
 
-
-
-
 class Solution {
 public:
     int ans;
@@ -55,8 +52,8 @@ public:
        }
        int l = solve(root->left);
        int r = solve(root->right);
-       if(root->left==NULL or root->right==NULL);
-       else
+
+       if(root->left!=NULL and root->right!=NULL)
        {
        ans = max(ans,l+r+root->data);
        }
@@ -74,16 +71,10 @@ public:
    {
        ans = INT_MIN;
        int x = solve(root);
-       if(root->left and root->right)
-       {
-           return ans;
-       }
+      if(root->left and root->right)
+      {
+          return ans;
+      }
        return max(ans,x);
    }
 };
-
-
-
-
-
-
