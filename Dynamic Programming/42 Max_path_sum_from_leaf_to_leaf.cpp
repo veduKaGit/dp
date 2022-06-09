@@ -1,3 +1,5 @@
+//here ans handles only the case when left and right nodes are not null
+
 class Solution {
 public:
    int ans;
