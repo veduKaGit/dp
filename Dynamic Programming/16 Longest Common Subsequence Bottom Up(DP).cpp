@@ -13,7 +13,7 @@ int LCS(string X, string Y, int n, int m) {
 // choise diagram is used to fill rest of the matrix 
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= m; j++)
-			if (X[i - 1] == Y[j - 1]) // when last character is same
+			if (X[i - 1] == Y[j - 1]) // when last character is same...remember yaha i-1 and j-1 aayega...because we took i,j starting from 1 in for loop
 				dp[i][j] = 1 + dp[i - 1][j - 1];
 			else // when last character is not same -> pick max
 				dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
