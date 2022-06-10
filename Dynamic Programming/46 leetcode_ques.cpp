@@ -1,4 +1,11 @@
+//MAX subarray sum with AT MOST 1 deletion (possible that there are 0 deletions)
+
 // ques: https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/
+
+//we are using kadanes algo TWICE
+//once left to right (going forward...thus values stored in an array named f)
+//once right ot left (going backward...thus values stored in an array named b)
+//now in case we delete any element, then max subarray sum on its deletion will be (f[i-1] + b[i+1])....adding the max subarray sum on its left and right ends
 
 class Solution {
 public:
@@ -27,8 +34,9 @@ public:
             b[i] = cur_max; 
         }
         
-        res = overall_max;
-        for(int i = 1; i < n - 1; i++)
+        res = overall_max; //VV_IMP .... in case all elements are +ive or -ive...then comes handy
+        
+        for(int i = 1; i < n - 1; i++)  //NOTE: NOT included corner elements in fior loop...obvio
         {
             res = max(res, f[i - 1] + b[i + 1]);
         }
