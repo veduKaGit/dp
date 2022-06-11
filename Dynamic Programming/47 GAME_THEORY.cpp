@@ -42,10 +42,10 @@ public:
 
         if(dp[i][j]!=-1) return dp[i][j];// since memoization
 
-        int left = nums[i] + min(solve(nums,dp,i+1,j-1) , solve(nums,dp,i+2,j));
-        int right= nums[j] + min(solve(nums,dp,i+1,j-1) , solve(nums,dp,i,j-2));
+        int left = nums[i] + min(solve(nums,dp,i+1,j-1) , solve(nums,dp,i+2,j)); //suppose i took nums[i]....then 2 cases...player 1 can take nums[i+1] OR he can take nums[J]
+        int right= nums[j] + min(solve(nums,dp,i+1,j-1) , solve(nums,dp,i,j-2)); //suppose i took nums[j]....then 2 cases...player 1 can take nums[i] OR he can take nums[J-1]
 
-        return dp[i][j] = max(left,right);
+        return dp[i][j] = max(left,right); //VVIMP: MAX here...MIN above...since other player tries to reduce our score
     }
     bool PredictTheWinner(vector<int>& nums) //actual function
     {
