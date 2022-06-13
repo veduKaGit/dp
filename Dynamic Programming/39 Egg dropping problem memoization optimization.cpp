@@ -1,3 +1,5 @@
+//OPTIMIZATION: use binary search instead of linear search!
+
 class Solution {
 public:
     int find(int k,int n,vector<vector<int>> &memo)
