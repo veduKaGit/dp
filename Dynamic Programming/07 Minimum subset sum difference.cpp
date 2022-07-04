@@ -38,7 +38,7 @@ int MinSubsetSumDiff(int arr[], int n) {
 	vector<int> v = isSubsetPoss(arr, n, range);
 	int mn = INT_MAX;
 	for (int i = 0; i < v.size(); i++) // iterating through the last row of the matrix 
-		mn = min(mn, abs(range - 2 * v[i])); // taking minimum from the last row 
+		mn = min(mn, abs(range - 2 * v[i])); // The idea is, sum of S1 is j and it should be closest to sum/2, i.e., 2*j should be closest to sum.
 
 	return mn;
 }
