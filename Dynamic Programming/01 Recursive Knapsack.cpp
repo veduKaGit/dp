@@ -9,8 +9,8 @@ int Knapsack(int wt[], int val[], int W, int n) {
 
 	if (wt[n - 1] <= W) 
 	{
-		return max(val[n - 1] + Knapsack(wt, val, W - wt[n - 1], n - 1), //take it-> NOT val[n] and wt[n]...because indexing is from 0 to (n-1)
-		           Knapsack(wt, val, W, n - 1));  //dont take it
+		return max(val[n - 1] + Knapsack(wt, val, W - wt[n - 1], n - 1), // NOT val[n] and wt[n]...because indexing is from 0 to (n-1)
+		           Knapsack(wt, val, W, n - 1));  
 	}
 	else if (wt[n - 1] > W) // if the weight is greater then the required weight there is no sence for taking that value. 
 		return Knapsack(wt, val, W, n - 1); // return as it is by redusing the size of array 
