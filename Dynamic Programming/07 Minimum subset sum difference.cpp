@@ -12,7 +12,7 @@ vector<int> isSubsetPoss(int arr[], int n, int sum) {
 				t[i][j] = true;
 		}
 	}
-// taking from the 2nd row and 2nd column 
+
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= sum; j++) {
 			if (arr[i - 1] <= j)
@@ -22,10 +22,11 @@ vector<int> isSubsetPoss(int arr[], int n, int sum) {
 		}
 	}
 
-	vector<int> v; // contains all subset sums possible with n elements // creating a vector varible to store all the element of the last row 
+	vector<int> v; // contains all subset sums possible with n elements (LAST ROW!)
+	
 	for (int j = 0; j <= sum; j++) // from the range we need to exclude the element which is not there in the existing problem 
-		if (t[n][j] == true) // keep true to only those place whose subset sum exist
-			v.push_back(j); // store in the vector 
+		if (t[n][j] == true) // keep true to only those where the sum == j is possible
+			v.push_back(j); // store in the vector...ALL POSSIBLE sums that can be made from the n elements
 
 	return v;
 }
