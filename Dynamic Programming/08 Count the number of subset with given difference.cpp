@@ -1,3 +1,7 @@
+// subset_sum1 + subset_sum2 = total_sum
+// subset_sum1 - subset_sum2 = diff
+//Use the above 2 eqn
+
 #include <bits/stdc++.h>
 using namespace std;
 
