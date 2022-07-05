@@ -25,7 +25,7 @@ string LCS(string X, string Y, int n, int m) {
 			i--, j--;
 		}
 		else {
-			if (dp[i][j - 1] > dp[i - 1][j])//if(dp[i][j-1]) is greater=> means NOT considering Y[j-1] (ie. current letter of string Y) gives greater LCS
+			if (dp[i][j - 1] > dp[i - 1][j]) //if dp[i][j-1] is greater=> means NOT considering Y[j-1] (ie. current letter of string Y) gives greater LCS
 				j--; 
 			else
 				i--;
