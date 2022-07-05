@@ -25,8 +25,8 @@ string LCS(string X, string Y, int n, int m) {
 			i--, j--;
 		}
 		else {
-			if (dp[i][j - 1] > dp[i - 1][j])
-				j--; // move to the larger side 
+			if (dp[i][j - 1] > dp[i - 1][j])//means not considering j gives lcs
+				j--; 
 			else
 				i--;
 		}
