@@ -4,7 +4,7 @@ using namespace std;
 
 int dp[1001][1001];
 
-int LCS(string X, string Y, int n, int m) {
+int LCS(string & X, string & Y, int n, int m) {  //USE '&' with strings....otherwise TLE
 	// base case
 	if (n == 0 || m == 0)
 		dp[n][m] = 0;
