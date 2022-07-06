@@ -82,8 +82,8 @@ bool Solve(string X, string Y) {
 	int flag = false;
 	for (int i = 1; i <= n - 1; i++)  //here i is the length of string which we get on making the cut (automatically other halve's length == n-i)
 	{
-		if ((Solve(X.substr(0, i), Y.substr(n - i, i)) && Solve(X.substr(i,n-i), Y.substr(0, n - i))) || // these are two condition for swapping and not swapping the string 
-		        (Solve(X.substr(0, i), Y.substr(0, i)) && Solve(X.substr(i,n-i), Y.substr(i,n-i)))) 
+		if ((Solve(X.substr(0, i), Y.substr(n - i, i)) && Solve(X.substr(i,n-i), Y.substr(0, n - i))) ||  //if swapped, compare 1st half of string_1 with 2nd half of string _2
+		        (Solve(X.substr(0, i), Y.substr(0, i)) && Solve(X.substr(i,n-i), Y.substr(i,n-i))))  // if not swapped...compare 1st half with 1st half (and 2nd with 2nd half)
 		{
 			flag = true; // change the  flag to true and break 
 			break;
