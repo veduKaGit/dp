@@ -1,3 +1,56 @@
+// Given two strings S1 and S2 of equal length, the task is to determine if S2 is a scrambled form of S1.
+// Scrambled string: 
+// Given string str, we can represent it as a binary tree by partitioning it into two non-empty substrings recursively.
+// Note: Scrambled string is not same as an Anagram **IMP**
+
+// Below is one possible representation of str = “coder”:
+
+//     coder
+//    /    \
+//   co    der
+//  / \    /  \
+// c   o  d   er
+//            / \
+//           e   r
+
+// To scramble the string, we may choose ANY NON-LEAF node and swap its two children. 
+// Suppose, we choose the node “co” and swap its two children, it produces a scrambled string “ocder”.
+// Thus, “ocder” is a scrambled string of “coder”.
+
+//     ocder
+//    /    \
+//   oc    der
+//  / \    /  \
+// o   c  d   er
+//            / \
+//           e   r
+
+// Similarly, if we continue to swap the children of nodes “der” and “er”, it produces a scrambled string “ocred”.
+ 
+//     ocred
+//    /    \
+//   oc    red
+//  / \    /  \
+// o   c  re  d
+//        / \
+//       r   e
+
+// Thus, “ocred” is a scrambled string of “coder”.
+
+// Examples:
+
+// Input: S1=”coder”, S2=”ocder” 
+// Output: Yes 
+// Explanation: 
+// “ocder” is a scrambled form of “coder”
+
+// Input: S1=”abcde”, S2=”caebd”        **IMP**
+// Output: No 
+// Explanation: 
+// “caebd” is not a scrambled form of “abcde”
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
