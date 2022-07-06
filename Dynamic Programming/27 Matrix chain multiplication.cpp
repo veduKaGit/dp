@@ -8,7 +8,8 @@ int Solve(int arr[], int i, int j) {
 		return 0;
 
 	int ans = INT_MAX;
-	for (int k = i; k <= j - 1; k++) {  //IMP....see constraints on k =>[i,j-1] // there are 2 sets formed...(i to k) and (k+1 to j)
+	for (int k = i; k <= j - 1; k++) //IMP=> constraints on k => till (j-1) //because the 2nd set is (k+1 to j) => ie. at last, it will be (j to j)
+	{  
 		int temp_ans = Solve(arr, i, k) + Solve(arr, k + 1, j) + arr[i - 1] * arr[k] * arr[j];  // NOT arr[i] =>see main() function
 		ans = min(ans, temp_ans);  // take temp minimum value from the temp answers
 	}
