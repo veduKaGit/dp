@@ -56,21 +56,18 @@ using namespace std;
 
 bool Solve(string X, string Y) {
 	
-	int arr[256]; //line 6 to 20 are just for reducing the time and memory, nothing else
+	int arr[256]; //line 59 to 69 are just for reducing the time and memory, nothing else
 	int brr[256];
 	for(int i=0;i<X.length();i++)
-	{
 		arr[X[i]]++;	
-	}
+	
 	for(int i=0;i<Y.length();i++)
-	{
 		brr[Y[i]]++;	
-	}
+	
 	for(int i=0;i<256;i++)
-	{
 		if(arr[i]!=brr[i])
 			return false;
-	}
+	
 	
 	
 	
