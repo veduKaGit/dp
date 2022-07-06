@@ -1,4 +1,4 @@
-// eg given string=> "T|T&F^T" => how do we put parenthesis so that it evaluates to true
+// eg given string=> "T|T&F^T" =>find no. of ways we put parenthesis so that expression evaluates to true
 
 #include <bits/stdc++.h>
 using namespace std;
