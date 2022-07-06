@@ -8,9 +8,9 @@ int Solve(int arr[], int i, int j) {
 		return 0;
 
 	int ans = INT_MAX;
-	for (int k = i; k <= j - 1; k++) {  //IMP....see constraints on k // there are 2 sets formed...(i to k) and (k+1 to j)
-		int temp_ans = Solve(arr, i, k) + Solve(arr, k + 1, j) + arr[i - 1] * arr[k] * arr[j]; //main logic
-		ans = min(ans, temp_ans); // take temp minimum value from the temp answers
+	for (int k = i; k <= j - 1; k++) {  //IMP....see constraints on k =>[i,j-1] // there are 2 sets formed...(i to k) and (k+1 to j)
+		int temp_ans = Solve(arr, i, k) + Solve(arr, k + 1, j) + arr[i - 1] * arr[k] * arr[j];  // NOT arr[i] =>see main() function
+		ans = min(ans, temp_ans);  // take temp minimum value from the temp answers
 	}
 
 	return ans;
