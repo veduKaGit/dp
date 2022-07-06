@@ -16,7 +16,7 @@ bool isPallindrome(string X, int i, int j) {
 }
 
 int Solve(string X, int i, int j) {
-	if (i >= j || isPallindrome(X, i, j)) //i==j is a valid input....but we can do 0 partitions on a single lettered string...thus return 0 for (i==j) as well//also, if already a pallindrome, return 0 since no partitions required
+	if (i >= j || isPallindrome(X, i, j)) //i==j is a valid input....but we can do 0 partitions on a single lettered string...thus return 0 for (i==j) as well // also, if already a pallindrome, return 0 since no partitions required
 		return 0;
 
 	int ans = INT_MAX;
