@@ -1,5 +1,12 @@
 // https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/
 
+
+//eg=> arr[] = 40 20 30 10 30
+// now say i=1, k=2, j=4
+// temp_ans = fun(arr, i, k) + fun(arr, k + 1, j) + arr[i-1]*arr[k]*arr[j]
+// OR temp_ans = fun(arr, 1, 2) + fun(arr, 3, 4) + arr[0]*arr[2]*arr[4]  => because in the question, dimensionality of a matrix is arr[x-1]*arr[x]
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
