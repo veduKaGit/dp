@@ -80,7 +80,7 @@ bool Solve(string X, string Y) {
 	
 	int n = X.length();
 	int flag = false;
-	for (int i = 1; i <= n - 1; i++)  //here i is the length of string which we get on making the cut (automatically other halfe's length == n-i)
+	for (int i = 1; i <= n - 1; i++)  //here i is the length of string which we get on making the cut (automatically other halve's length == n-i)
 	{
 		if ((Solve(X.substr(0, i), Y.substr(n - i, i)) && Solve(X.substr(i,n-i), Y.substr(0, n - i))) || // these are two condition for swapping and not swapping the string 
 		        (Solve(X.substr(0, i), Y.substr(0, i)) && Solve(X.substr(i,n-i), Y.substr(i,n-i)))) 
