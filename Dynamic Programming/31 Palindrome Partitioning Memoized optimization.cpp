@@ -4,17 +4,16 @@ using namespace std;
 const int D = 1001;
 int t[D][D];
 
-bool isPallindrome(string X, int i, int j) {
+bool isPallindrome(string & X, int i, int j) {  //optimization 1: pass string by reference
 	while (i <= j) {
 		if (X[i] != X[j])
 			return false;
 		i++, j--;
 	}
-
 	return true;
 }
 
-int Solve(string X, int i, int j) {
+int Solve(string & X, int i, int j) {  //optimization 1: pass string by reference
 	if (t[i][j] != -1)
 		return t[i][j];
 
@@ -24,7 +23,7 @@ int Solve(string X, int i, int j) {
 	}
 
 	int ans = INT_MAX;
-	for (int k = i; k < j; k++) {
+	for (int k = i; k < j; k++) {   //optimization 2: left and right wala
 		int left, right;
 		if (t[i][k] == -1)
 			left = Solve(X, i, k);
