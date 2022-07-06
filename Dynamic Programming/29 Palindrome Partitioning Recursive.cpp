@@ -1,5 +1,7 @@
-//find min no. of cuts in the string to make it palindrome 
-
+// Given a string, a partitioning of the string is a palindrome partitioning if every substring of the partition is a palindrome. 
+// For example, “aba|b|bbabb|a|b|aba” is a palindrome partitioning of “ababbbabbababa”. 
+// Determine the fewest cuts needed for a palindrome partitioning of a given string.
+	
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -32,3 +34,48 @@ int main() {
 	cout << Solve(X, 0, X.length() - 1) << endl;
 	return 0;
 }
+
+
+//ANOTHER WAY TO ASK THIS QUES:
+// Given a string s, partition s such that every substring of the partition is a palindrome. 
+// Return all possible palindrome partitioning of s.
+// Input: s = "aab"
+// Output: [["a","a","b"],["aa","b"]]
+
+class Solution {
+public:
+    bool isPal(string s)
+    {
+        string x =s;
+        reverse(s.begin(),s.end());
+        if(x==s)
+            return true;
+        return false;
+    }
+    void fun(vector<vector<string>>&ans ,vector<string>&v,string& s,int ind)
+    {
+        if(ind==s.size())
+        {
+            ans.push_back(v);
+            return;
+        }
+        for(int i = ind; i < s.size(); i++)
+        {
+            string temp = s.substr(ind,i-ind+1);
+            if(isPal(temp)) 
+            {
+                v.push_back(temp);
+                fun(ans, v, s, i+1);
+                v.pop_back();
+            }
+        }
+    }
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>>ans;
+        vector<string>v;
+        int l=0;
+        int r=s.size()-1;
+        fun(ans,v,s,0);
+        return ans;
+    }
+};
