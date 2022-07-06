@@ -12,7 +12,7 @@ int Solve(string X, int i, int j, bool isTrue) {
 	}
 
 	int ans = 0;
-	for (int k = i + 1; k < j; k += 2) {
+	for (int k = i + 1; k <= j-1; k += 2) {   // k = [i+1 , j-1] and k+=2 => since we are iterating over the boolean poerators 
 		int l_T = Solve(X, i, k - 1, true);
 		int l_F = Solve(X, i, k - 1, false);
 		int r_T = Solve(X, k + 1, j, true);
