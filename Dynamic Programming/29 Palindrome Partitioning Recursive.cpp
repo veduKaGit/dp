@@ -4,12 +4,12 @@
 using namespace std;
 
 bool isPallindrome(string X, int i, int j) { 
-	while (i <= j) {
+	while (i <= j) 
+	{
 		if (X[i] != X[j])
 			return false;
 		i++, j--;
 	}
-
 	return true;
 }
 
