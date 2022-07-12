@@ -32,7 +32,7 @@ public:
         
         res = max(res, l+r+1); //this is our main ans //l+r+1 is the DIAMATER considering max DIAMETER is through current node
        
-        return temp_ht;  //returning this ensures we are considering max DIAMETER is through IT'S PARENT node as well
+        return temp_ht;  //returning this ensures we are considering the chance of max DIAMETER is through IT'S PARENT node as well
     }
     int diameterOfBinaryTree(TreeNode* root) {
         if (root == NULL)
