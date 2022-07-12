@@ -9,6 +9,14 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// The diameter of a tree (sometimes called the width) is the number of nodes on the longest path between two end nodes. 
+
+// The diameter of a tree T is the largest of the following quantities:
+//a. the diameter of T’s left subtree.
+//b. the diameter of T’s right subtree.
+//c. the longest path between leaves that goes through the root of T (this can be computed from the heights of the subtrees of T)
+
 class Solution {
 private:
     int res;
