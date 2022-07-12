@@ -28,11 +28,11 @@ public:
         int l = Solve(root->left);//returns max HEIGHT of left sub tree
         int r = Solve(root->right);//returns max HEIGHT of right sub tree
 
-        int temp_ht = (1 + max(l, r));  //returns max HEIGHT...considering max DIAMETER is through IT'S PARENT node
+        int ht = (1 + max(l, r));  //returns max HEIGHT...considering max DIAMETER is through IT'S PARENT node
         
         res = max(res, l+r+1); //this is our main ans //l+r+1 is the DIAMATER considering max DIAMETER is through current node
        
-        return temp_ht;  //returning this ensures we are considering the chance of max DIAMETER is through IT'S PARENT node as well
+        return ht;  //returning this ensures we are considering the chance of max DIAMETER is through IT'S PARENT node as well
     }
     int diameterOfBinaryTree(TreeNode* root) {
         if (root == NULL)
