@@ -31,7 +31,8 @@ public:
         int temp = (1+max(l, r));  //returns max HEIGHT...considering max DIAMETER is through IT'S PARENT node
         int ans = max(temp, l+r+1); //l+r+1 is the DIAMATER considering max DIAMETER is through current node
         res = max(res, ans);//this is our main ans
-        return temp;
+       
+        return temp;  //NOT ans
     }
     int diameterOfBinaryTree(TreeNode* root) {
         if (root == NULL)
