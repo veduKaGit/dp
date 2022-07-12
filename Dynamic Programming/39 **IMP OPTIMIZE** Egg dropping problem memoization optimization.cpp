@@ -17,8 +17,8 @@ public:
         {
             int mid=(l+h)/2;
             
-            int left=find(k-1,mid-1,memo);   //egg broken check for down floors of mid
-            int right=find(k,n-mid,memo) ;   // not broken check for up floors of mid
+            int left=find(k-1,mid-1,memo);   //egg broken-> check for down floors of mid -> since our required floor lies in this range
+            int right=find(k,n-mid,memo) ;   // not broken -> check for up floors of mid -> since our required floor lies in this range
             temp=1+max(left,right);          //store max of both 
             
             if(left<right)                  //since right is more than left and we need more in worst case 
