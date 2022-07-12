@@ -1,3 +1,5 @@
+// Return the minimum number of moves that you need to determine with certainty what the value of floor is.
+
 #include <bits/stdc++.h>
 using namespace std;
 
