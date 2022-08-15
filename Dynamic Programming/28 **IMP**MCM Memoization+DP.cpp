@@ -60,8 +60,7 @@ int MatrixChainOrder(int p[], int n)
 		m[i][i] = 0; //but that triangular half will not be used anywhere in our calculations since the diagonal will be used
 
 	// L is chain length which we consider
-	// whenever we have a length L, i can be from (1 to n-L) and j will be (i+L-1)
-	// say its this way-> n=5, L=3 -> (_ _ _ * *) and (* _ _ _ *) and (* * _ _ _) ->underscore parts are from i to j -> start parts are the remaining portion
+	// whenever we have a length L, i can be from (1 to n-L) and j will be (i+L-1)...why i is from 1...because it needs MIN 2 no's to define dimensions of a matrix
 	// we have 2 groups formed..(i to k) and (k+1 to j)
 	//L can never be ==n ....since then NO parenthesis is applied
 	//also, L!=n because then (i to k) and (k+1 to j) can not be formed
@@ -82,9 +81,4 @@ int MatrixChainOrder(int p[], int n)
 
 	return m[1][n - 1]; //NOT m[n-1][n-1] //*************IMP**************
 }
-
-
-
-
-
 
