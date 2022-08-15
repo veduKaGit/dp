@@ -61,6 +61,7 @@ int MatrixChainOrder(int p[], int n)
 
 	// L is chain length which we consider
 	// whenever we have a length L, i can be from (1 to n-L) and j will be (i+L-1)
+	// say its this way-> n=5, L=3 -> (_ _ _ * *) and (* _ _ _ *) and (* * _ _ _) ->underscore parts are from i to j -> start parts are the remaining portion
 	// we have 2 groups formed..(i to k) and (k+1 to j)
 	//L can never be ==n ....since then NO parenthesis is applied
 	//also, L!=n because then (i to k) and (k+1 to j) can not be formed
