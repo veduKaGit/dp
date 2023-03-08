@@ -115,12 +115,15 @@ void getDigits(long long x, vector <int> &digit)
 
 long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 {
-	// base case
-	if (idx == -1)
+	if (idx == -1)  //base case
 		return sum;
 
 	if ( (dp[idx][sum][tight] != -1) && (tight != 1) )  // 2 condn => IMP => since tight==1 means aage ka nahi pata => calculate karna paega
 		return dp[idx][sum][tight];
+	
+	//one VVIMP thing to NOTE in this function => we are storing and callign DP ONLY when tight==0
+	//why?
+	//because DP parameters are just (idx, sum and tight) => tells idx index tak kya sum aaya hai => can be memoized ONLY when tight==0
 
 	long long ret = 0;
 
@@ -128,10 +131,8 @@ long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 
 	for (int i = 0; i <= k ; i++)
 	{
-		// calculating newTight value for next state
 		int newTight = (digit[idx] == i) ? tight : 0;
 
-		// fetching answer from next state
 		ret += digitSum(idx-1, sum+i, newTight, digit);
 	}
 
@@ -160,10 +161,3 @@ int rangeDigitSum(int a, int b)
 	return (ans2 - ans1);   //fun(b) - fun(a-1) ... NOT fun(a)
 }
 
-
-int main()
-{
-	long long a = 123, b = 1024;
-	cout << "digit sum for given range : "<< rangeDigitSum(a, b) << endl;
-	return 0;
-}
