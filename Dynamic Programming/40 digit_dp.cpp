@@ -100,7 +100,7 @@
 
 // Given two integers a and b. The task is to print sum of all the digits appearing in the integers between a and b
 
-long long dp[20][180][2];  //dp[index][sum][tight]
+long long dp[20][180][2];  //dp[index][sum][tight] ... remember we discussed above ... sum can go only till 162
 
 
 void getDigits(long long x, vector <int> &digit)
@@ -119,24 +119,23 @@ long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 	if (idx == -1)
 		return sum;
 
-	// checking if already calculated this state
-	if ( (dp[idx][sum][tight] != -1) && (tight != 1) )
+	if ( (dp[idx][sum][tight] != -1) && (tight != 1) )  // 2 condn => IMP => since tight==1 means aage ka nahi pata => calculate karna paega
 		return dp[idx][sum][tight];
 
 	long long ret = 0;
 
-	int k = tight ? digit[idx] : 9;
+	int k = tight ? digit[idx] : 9;   // new number range depends on 'tight' boolean
 
 	for (int i = 0; i <= k ; i++)
 	{
 		// calculating newTight value for next state
-		int newTight = (digit[idx] == i)? tight : 0;
+		int newTight = (digit[idx] == i) ? tight : 0;
 
 		// fetching answer from next state
 		ret += digitSum(idx-1, sum+i, newTight, digit);
 	}
 
-	if (!tight)
+	if(tight == 0)    //IMP => store ONLY when tight == 0
 		dp[idx][sum][tight] = ret;
 
 	return ret;
@@ -146,21 +145,16 @@ long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 // Returns sum of digits in numbers from a to b.
 int rangeDigitSum(int a, int b)
 {
-	// initializing dp with -1
 	memset(dp, -1, sizeof(dp));
 
-	// storing digits of a-1 in digit vector
 	vector<int> digitA;
-	getDigits(a-1, digitA);
+	getDigits(a-1, digitA);   // (a-1) => NOT a
 
-	// Finding sum of digits from 1 to "a-1" which is passed as digitA.
 	long long ans1 = digitSum(digitA.size()-1, 0, 1, digitA);
 
-	// Storing digits of b in digit vector
 	vector<int> digitB;
 	getDigits(b, digitB);
 
-	// Finding sum of digits from 1 to "b" which is passed as digitB.
 	long long ans2 = digitSum(digitB.size()-1, 0, 1, digitB);
 
 	return (ans2 - ans1);   //fun(b) - fun(a-1) ... NOT fun(a)
