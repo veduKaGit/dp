@@ -105,30 +105,27 @@ long long dp[20][180][2];  //dp[index][sum][tight]
 
 void getDigits(long long x, vector <int> &digit)
 {
-  while (x)
-  {
-    digit.push_back(x%10);
-    x /= 10;
-  }
+	while (x)
+	{
+		digit.push_back(x%10);
+		x /= 10;
+	}
 }
 
-// Return sum of digits from 1 to integer in
-// digit vector
-long long digitSum(int idx, int sum, int tight,
-						vector <int> &digit)
+
+long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 {
 	// base case
 	if (idx == -1)
-	return sum;
+		return sum;
 
 	// checking if already calculated this state
-	if (dp[idx][sum][tight] != -1 and tight != 1)
+	if ( (dp[idx][sum][tight] != -1) && (tight != 1) )
 		return dp[idx][sum][tight];
 
 	long long ret = 0;
 
-	// calculating range value
-	int k = (tight)? digit[idx] : 9;
+	int k = tight ? digit[idx] : 9;
 
 	for (int i = 0; i <= k ; i++)
 	{
@@ -140,10 +137,11 @@ long long digitSum(int idx, int sum, int tight,
 	}
 
 	if (!tight)
-	dp[idx][sum][tight] = ret;
+		dp[idx][sum][tight] = ret;
 
 	return ret;
 }
+
 
 // Returns sum of digits in numbers from a to b.
 int rangeDigitSum(int a, int b)
@@ -155,26 +153,23 @@ int rangeDigitSum(int a, int b)
 	vector<int> digitA;
 	getDigits(a-1, digitA);
 
-	// Finding sum of digits from 1 to "a-1" which is passed
-	// as digitA.
+	// Finding sum of digits from 1 to "a-1" which is passed as digitA.
 	long long ans1 = digitSum(digitA.size()-1, 0, 1, digitA);
 
 	// Storing digits of b in digit vector
 	vector<int> digitB;
 	getDigits(b, digitB);
 
-	// Finding sum of digits from 1 to "b" which is passed
-	// as digitB.
+	// Finding sum of digits from 1 to "b" which is passed as digitB.
 	long long ans2 = digitSum(digitB.size()-1, 0, 1, digitB);
 
-	return (ans2 - ans1);
+	return (ans2 - ans1);   //fun(b) - fun(a-1) ... NOT fun(a)
 }
 
-// driver function to call above function
+
 int main()
 {
 	long long a = 123, b = 1024;
-	cout << "digit sum for given range : "
-		<< rangeDigitSum(a, b) << endl;
+	cout << "digit sum for given range : "<< rangeDigitSum(a, b) << endl;
 	return 0;
 }
