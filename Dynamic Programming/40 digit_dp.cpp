@@ -121,7 +121,7 @@ long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 	if ( (dp[idx][sum][tight] != -1) && (tight != 1) )  // 2 condn => IMP => since tight==1 means aage ka nahi pata => calculate karna paega
 		return dp[idx][sum][tight];
 	
-	//one VVIMP thing to NOTE in this function => we are storing and callign DP ONLY when tight==0
+	//one VVIMP thing to NOTE in this function => we are storing and calling DP ONLY when tight==0
 	//why?
 	//because DP parameters are just (idx, sum and tight) => tells idx index tak kya sum aaya hai => can be memoized ONLY when tight==0
 
