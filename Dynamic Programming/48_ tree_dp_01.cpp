@@ -1,14 +1,14 @@
+// You are given a tree consisting of n nodes.
+// A matching is a set of edges where each node is an endpoint of at most one edge. 
+// What is the maximum number of edges in a matching?
+
+//CSES KA QUES HAI -> TREE MATCHING
+// to do in O(N) time
+
+
 #include<bits/stdc++.h>
 #define ll long long
-#define pb push_back
 #define fr(a,b) for(int i = a; i < b; i++)
-#define rep(i,a,b) for(int i = a; i < b; i++)
-#define mod 1000000007
-#define inf (1LL<<60)
-#define all(x) (x).begin(), (x).end()
-#define prDouble(x) cout << fixed << setprecision(10) << x
-#define triplet pair<ll,pair<ll,ll>>
-#define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL)
 using namespace std;
  
 vector<int> adj[200001];
@@ -53,7 +53,6 @@ void solve(int src, int par)
 }
  
 int main() {
-   fast_io;
    ll n,m,x,i,j,k,q;
 
     cin >> n;
@@ -68,7 +67,7 @@ int main() {
 
     solve(0, -1);
     
-    cout << max(dp[0][0], dp[0][1]);
+    cout << max(dp[0][0], dp[0][1]);   //ans is max of these 2
 
     return 0;
 }
