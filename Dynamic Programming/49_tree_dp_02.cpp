@@ -1,8 +1,15 @@
 // You are given a tree consisting of n nodes.
 // Your task is to determine for each node the maximum distance to another node.
 // 1 ≤ n ≤ 2*10^5
- 
+// Output:
+// Print n integers: for each node 1,2,…,n, the maximum distance to another node.
 
+// Approach:
+// If we start a BFS from any node, we end up on either of the diametric end. 
+// We can use this fact to efficiently compute the answer. 
+// Let's calculate distances of each node from both the ends of the diameter. 
+// Then maximum distance of each node can be calculated as:
+// max_distance[u] = max(distance_from_diametric_end1[u], distance_from_diametric_end2[u])
 
 
 #include<bits/stdc++.h>
@@ -24,13 +31,13 @@ int bfs(int src, vector<int>&ans, vector<vector<int>>&adj){
         for(auto x:adj[top]){
             if(dist[x] == -1){
                 dist[x] = dist[top]+1;
-                ans[x] = max(ans[x], dist[x]);
+                ans[x] = max(ans[x], dist[x]);   //ans[x] is our final answer array
                 q.push(x);
             }
         }
     }
 
-    return top;
+    return top;  //return a diametric end
 }
 
 int main() {
@@ -47,9 +54,9 @@ int main() {
         adj[v-1].push_back(u-1);
     }
 
-    int diameter_end_1 = bfs(0, ans, adj);
-    int diameter_end_2 = bfs(diameter_end_1, ans, adj);
-    bfs(diameter_end_2, ans, adj);
+    int diameter_end_1 = bfs(0, ans, adj);  //bfs from any random node-> gives us a diametric end
+    int diameter_end_2 = bfs(diameter_end_1, ans, adj);   //bfs from diameter_end_1 -> gives us the 2nd end of diameter
+    bfs(diameter_end_2, ans, adj);  //bfs from diameter_end_2
     
     for(int i=0;i<n;i++)
         cout<<ans[i]<<" ";
