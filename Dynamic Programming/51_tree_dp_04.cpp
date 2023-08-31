@@ -24,7 +24,7 @@ void fun_in(ll i, ll parent, ll k, vector<vector<ll>>&in_dp, vector<vector<ll>>&
         if(x==parent)  //imp
             continue;
         
-        //in_dp[par][j+1] = summation(in_dp[child][j]) -> where child != parent of 'par'
+        //in_dp[par][j+1] = summation(in_dp[child][j]) -> where child != parent of 'par' (ensured this in the 'if' statement)
         for(ll j=0;j<k;j++)
             in_dp[i][j+1] += in_dp[x][j];
     }
