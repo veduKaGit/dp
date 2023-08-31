@@ -54,7 +54,7 @@ int main() {
         adj[v-1].push_back(u-1);
     }
 
-    int diameter_end_1 = bfs(0, ans, adj);  //bfs from any random node-> gives us a diametric end
+    int diameter_end_1 = bfs(0, ans, adj);  //bfs from any random node-> gives us a diameter_end_1
     int diameter_end_2 = bfs(diameter_end_1, ans, adj);   //bfs from diameter_end_1 -> gives us the 2nd end of diameter
     bfs(diameter_end_2, ans, adj);  //bfs from diameter_end_2
     
