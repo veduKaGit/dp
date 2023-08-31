@@ -39,7 +39,7 @@ void fun_out(ll i, ll parent, ll k, vector<vector<ll>>&in_dp, vector<vector<ll>>
         //out_dp[i][j-1] => x ke j-1 distance par no. of nodes NOT in subtree rooted with x
         //in_dp[i][j-1] - in_dp[x][j-2] => (i ke j-1 distance par no. of nodes in subtree rooted with i) - (child ke j-2 distance par no. of nodes in subtree rooted with child)
         
-        for(ll j=2; j<=k; j++) //pehle parent(i) ka calculate hoga, then child(x) -> thus for loop here
+        for(ll j=2; j<=k; j++) //pehle parent(ie. i) ka calculate hoga, then child(ie. x) -> thus for loop here
             out_dp[x][j] = out_dp[i][j-1] + in_dp[i][j-1] - in_dp[x][j-2];
 
         fun_out(x, i, k, in_dp, out_dp, adj);
