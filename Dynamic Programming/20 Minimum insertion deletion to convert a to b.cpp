@@ -1,3 +1,11 @@
+// Input: s1 = “heap”, s2 = “pea” 
+// Output: 3
+// Explanation: Minimum Deletion = 2 and Minimum Insertion = 1
+// p and h are deleted from the heap, and then p is inserted at the beginning. 
+// One thing to note, though p was required it was removed/deleted first from its position and then it was inserted into some other position. 
+// Thus, p contributes one to the deletion count and one to the insertion count.
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
