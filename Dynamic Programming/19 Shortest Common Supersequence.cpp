@@ -1,3 +1,6 @@
+// Given two strings s1 and s2
+// the task is to find the length of the shortest string that has both s1 and s2 as subsequences.
+
 
 #include <bits/stdc++.h>
 using namespace std;
