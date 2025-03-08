@@ -1,38 +1,28 @@
 //  https://www.geeksforgeeks.org/cutting-a-rod-dp-13/
 
+// space: O(N)
+// time: O(N^2)
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int getMaxProfit(int length[], int price[], int n, int L) {
-	int dp[n + 1][L + 1];
-	for (int i = 0; i <= n; i++)
-		for (int j = 0; j <= L; j++)
-			if (j == 0 || i == 0)
-				dp[i][j] = 0;
-
-	for (int i = 1; i <= n; i++) {
-		for (int j = 1; j <= L; j++) {
-			if (length[i - 1] <= j) {
-				dp[i][j] = max(dp[i - 1][j],
-				               price[i - 1] + dp[i][j - length[i - 1]]); // NOT + dp[i-1][j - length[i - 1]]); since unbounded knapsack
-			}
-			else
-				dp[i][j] = dp[i - 1][j];
-		}
-	}
-
-	return dp[n][L];
+int cutRod(vector<int> &price) {
+    int n = price.size();
+    vector<int> dp(price.size()+1, 0);
+    
+    // Find maximum value for all rod of length i.
+    for (int i=1; i<=n; i++) {
+        for (int j=1; j<=i; j++) {
+            dp[i] = max(dp[i], price[j-1]+dp[i-j]);
+        }
+    }
+    
+    return dp[n];
 }
 
-signed main() {
-	int n; cin >> n;
-	int length[n], price[n];
-	for (int i = 0; i < n; i++)
-		cin >> length[i];
-	for (int i = 0; i < n; i++)
-		cin >> price[i];
-	int L; cin >> L;
-
-	cout << getMaxProfit(length, price, n, L) << endl;
-	return 0;
+int main() {
+    vector<int> price =  { 1, 5, 8, 9, 10, 17, 17, 20};
+    cout << cutRod(price);
+    return 0;
 }
+
