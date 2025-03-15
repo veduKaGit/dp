@@ -9,6 +9,11 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// The number of nodes in the tree is in the range [1, 3 * 104].
+// -1000 <= Node.val <= 1000
+
+
 class Solution {
 private:
     int res;
