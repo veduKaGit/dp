@@ -29,12 +29,6 @@ public:
             ans=min(ans,temp);               //store minimum attempts
         }
         
-     /*
-        Here we have k eggs and n floor
-        if we drop from i  (i=1 to n):
-         i) egg break , now we remain k-1 eggs and i-1 floor beacase after i floor all the eggs will also break
-        ii) egg not break , now we remain k eggs and n-i floor because before i (included) all eggs will be remain
-      */
         return memo[k][n]=ans;
      
     }
