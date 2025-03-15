@@ -10,30 +10,36 @@
  * };
  */
 
+
+
 // The number of nodes in the tree is in the range [1, 3 * 104].
 // -1000 <= Node.val <= 1000
 
 
 class Solution {
-private:
-    int res;
 public:
-    int Solve(TreeNode* root) {
-        if (root == NULL)
+    int ans=INT_MIN;
+
+    int fun(TreeNode* root){  //fun returns: MAX sum b/w the root node AND any child node of it
+        if(root==NULL)
             return 0;
+        
+        if(root->left==NULL && root->right==NULL){
+            ans = max(ans, root->val);
+            return root->val;
+        }
+        
+        int r = fun(root->left);
+        int l = fun(root->right);
 
-        int l = Solve(root->left); //think deeply...its max sum starting from the root->left node...since we want a continuous path
-        int r = Solve(root->right); //think deeply...its max sum starting from the root->right node...since we want a continuous path
+        int v = root->val;
 
-        int temp = max( root->val+max(l, r) , root->val); //considering max sum is through the parent node...also considering if there are -ive value nodes
-        int ans = max(temp, l+r+ root->val); //considering max sum is through current node
-        res = max(res, ans); //this is our main ans
+        ans = max(ans , max(v, max(v+l, max(v+r, v + r +l))));
 
-        return temp;
+        return max(v, max(v+l, v+r));
     }
     int maxPathSum(TreeNode* root) {
-        res = INT_MIN;
-        Solve(root);
-        return res;
+        fun(root);
+        return ans;
     }
 };
