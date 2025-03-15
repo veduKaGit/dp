@@ -19,7 +19,7 @@ public:
             
             int left=find(k-1,mid-1,memo);   //egg broken
             int right=find(k,n-mid,memo) ;   // not broken  *** VVIMP *** => DONT do h-mid, it's n-mid
-            temp = 1 + max(left,right);      //store max of both -> +1 because no. of moves increase by 1
+            temp = 1 + max(left,right);      // +1 here
             
             if(left<right)                  //we need MORE in worst case
               l=mid+1;                       
