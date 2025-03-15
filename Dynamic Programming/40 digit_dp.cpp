@@ -85,7 +85,7 @@
 
 
 
-// Time Complexity => O(10*idx*sum*tight) => 10 if bcz of for loop (digits 0-9)
+// Time Complexity => O(10*idx*sum*tight) => 10 bcz of for loop (digits 0-9)
 // observe that tight = 2, idx can be max 18 for 64 bit unsigned integer, sum will be max 9*18 ~ 200. 
 // So, overall we have 10*18*200*2 ~ 10^5 iterations which can be easily executed in 0.01 seconds.
 
