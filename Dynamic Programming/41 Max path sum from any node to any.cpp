@@ -20,19 +20,19 @@ class Solution {
 public:
     int ans=INT_MIN;
 
-    int fun(TreeNode* root){  //fun returns: MAX sum b/w the root node AND any child node of it
-        if(root==NULL)
+    int fun(TreeNode* cur){  //fun returns: MAX sum b/w cur node AND any child node of it
+        if(cur==NULL)
             return 0;
         
-        if(root->left==NULL && root->right==NULL){
-            ans = max(ans, root->val);
-            return root->val;
+        if(cur->left==NULL && cur->right==NULL){
+            ans = max(ans, cur->val);
+            return cur->val;
         }
         
-        int r = fun(root->left);
-        int l = fun(root->right);
+        int r = fun(cur->left);
+        int l = fun(cur->right);
 
-        int v = root->val;
+        int v = cur->val;
 
         ans = max(ans , max(v, max(v+l, max(v+r, v + r +l))));
 
