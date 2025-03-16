@@ -1,6 +1,11 @@
 // question:
 // https://leetcode.com/problems/coin-change/
 
+// 1 <= coins.length <= 12
+// 1 <= coins[i] <= 231 - 1
+// 0 <= amount <= 104
+
+
 //i did in O(n^2)....gave TLE
 
 //this logic: O(n * size_of_coins_vector)
