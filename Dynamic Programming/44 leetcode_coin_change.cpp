@@ -50,7 +50,7 @@ public:
             for(int j=1;j<=amount;j++)
             {
                 if(j>=coins[i-1])
-                    dp[i][j] = dp[i-1][j] + dp[i][j-coins[i-1]];
+                    dp[i][j] = dp[i-1][j] + dp[i][j-coins[i-1]];  //NOT dp[i-1][j-coins[i-1]] because we can repeat coins
                 else
                     dp[i][j]=dp[i-1][j];
             }
