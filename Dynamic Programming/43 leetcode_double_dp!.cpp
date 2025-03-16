@@ -3,6 +3,8 @@
 
 //dp applied twice!...basically loop applied twice!!!!!
 
+//another approach is BFS
+
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
