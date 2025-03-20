@@ -16,7 +16,7 @@ using namespace std;
 vector<int> adj[200001];
 int dp[200001][2];
  
-void solve(int src, int par)
+void dfs(int src, int par)
 {
     //dp[src][0] = cnt of edges for SUBTREE with src and can NOT take src
     //dp[src][1] = cnt of edges for SUBTREE with src and can take src
@@ -26,7 +26,7 @@ void solve(int src, int par)
         if(adj[src][i] == par)
             continue;
         
-        solve(adj[src][i], src);
+        dfs(adj[src][i], src);
     }
 
     //dp[src][1] = { summation dp[child][0] } -> child is children of src in its subtree
@@ -67,7 +67,7 @@ int main() {
         adj[v-1].push_back(u-1);
     }
 
-    solve(0, -1);
+    dfs(0, -1);
     
     cout << max(dp[0][0], dp[0][1]);   //ans is max of these 2
 
