@@ -33,6 +33,8 @@
 // Similarly here, of the two ranges which you are left with (mentioned above), you can only use that range which gives us the minimum amount.
 
 
+// dp[i][j] = max score player_1 can make in index range [i, j]
+
 class Solution {
 public:
     int solve(vector<int>& nums,vector<vector<int>>& dp, int i, int j)//helper
