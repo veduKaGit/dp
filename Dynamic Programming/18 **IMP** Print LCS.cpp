@@ -1,46 +1,38 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-string LCS(string X, string Y, int n, int m) {
-	int dp[n + 1][m + 1]; // DP - matrix
+int dp[1001][1001];
 
-	// base case of recursion --> for initialization of dp - matrix
-	for (int i = 0; i <= n; i++)
-		for (int j = 0; j <= m; j++)
-			if (i == 0 || j == 0)
-				dp[i][j] = 0;
-
-	for (int i = 1; i <= n; i++)
-		for (int j = 1; j <= m; j++)
-			if (X[i - 1] == Y[j - 1]) // when last character is same
-				dp[i][j] = 1 + dp[i - 1][j - 1];
-			else // when last character is not same -> pick max
-				dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
-
-	int i = n, j = m;
-	string lcs = ""; // store charecter when it is equal in the table 
-	while (i > 0 && j > 0) {
-		if (X[i - 1] == Y[j - 1]) {
-			lcs += X[i - 1]; // insert in string 
-			i--, j--;
-		}
-		else {
-			if (dp[i][j - 1] > dp[i - 1][j]) //if dp[i][j-1] is greater=> means NOT considering Y[j-1] (ie. current letter of string Y) gives greater LCS
-				j--; 
-			else
-				i--;
-		}
-	}
-	reverse(lcs.begin(), lcs.end()); // at last reverse the string to get LCS 
-
-	return lcs;
+int lcs(int i, int j, string&s1, string&s2){
+	if(i==s1.size() || j==s2.size())
+		return 0;
+	if(dp[i][j]!=-1)
+		return dp[i][j];
+	
+	if(s1[i]==s2[j])
+		return dp[i][j] = 1 + lcs(i+1, j+1, s1, s2);
+	return dp[i][j] = max(lcs(i+1, j, s1, s2), lcs(i, j+1, s1, s2));
 }
 
-signed main() {
-	string X, Y; cin >> X >> Y;
-	int n = X.length(), m = Y.length();
+string rev(int i, int j, string&s1, string&s2){
+	if(i==s1.size() || j==s2.size())
+		return "";
 
-	cout << LCS(X, Y, n, m) << endl;
-	return 0;
+	string s = "";
+	
+	if(s1[i]==s2[j])
+		return s1[i] + rev(i+1, j+1, s1, s2);
+	
+	if(dp[i+1][j] >= dp[i][j+1])
+		return rev(i+1, j, s1, s2);
+	else
+		return rev(i, j+1, s1, s2);
 }
-// https://www.geeksforgeeks.org/printing-longest-common-subsequence/
+
+string findLCS(int n, int m,string &s1, string &s2){
+	memset(dp, -1, sizeof(dp));
+	lcs(0, 0, s1, s2);
+	// cout<<len<<endl;
+	string s = rev(0, 0, s1, s2);
+	return s;	
+}
