@@ -1,3 +1,5 @@
+// remember => egg drop = DP + BINARY SEARCH
+
 //OPTIMIZATION: use binary search instead of linear search!
 
 class Solution {
