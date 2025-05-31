@@ -9,8 +9,9 @@
 // 	Else, dp[i] = min(dp[i], dp[j-1] + 1)
 
 // This way:
-// You precompute all palindrome[j][i] in O(N²)
-// Then compute dp[i] in O(N²)
+// 1D dp
+// You precompute all palindrome[j][i] in O(N^2)
+// Then compute dp[i] in O(N^2)
 
 
 class Solution {
