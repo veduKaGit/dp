@@ -100,6 +100,13 @@
 
 // Given two integers a and b. The task is to print sum of all the digits appearing in the integers between a and b
 
+// dp[i][sum][tight] = The total sum of digits possible when:
+// 1. You are at the i-th digit from the right (starting from least significant digit).
+// 2. The sum of digits so far is sum.
+// 3. for that particular 'tight'
+
+
+
 long long dp[20][180][2];  //dp[index][sum][tight] ... remember we discussed above ... sum can go only till 162
 
 
