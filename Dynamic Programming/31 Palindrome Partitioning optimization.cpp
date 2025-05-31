@@ -10,7 +10,7 @@
 
 // This way:
 // 1D dp
-// You precompute all palindrome[j][i] in O(N^2)
+// You precompute all palindrome[i][j] in O(N^2)
 // Then compute dp[i] in O(N^2)
 
 
