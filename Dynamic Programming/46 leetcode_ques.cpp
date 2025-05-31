@@ -12,6 +12,11 @@
 // 2. b[]
 // 3. overall_max -> max subarray sum wihtout any deletion (basic kadane's algo)
 
+// now in case we delete any element, then max subarray sum on its deletion will be:
+// (f[i-1] + b[i+1])....adding the max subarray sum on its left and right ends
+
+
+
 class Solution {
 public:
     int maximumSum(vector<int>& v) 
