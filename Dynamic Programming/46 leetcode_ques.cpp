@@ -2,11 +2,15 @@
 
 // ques: https://leetcode.com/problems/maximum-subarray-sum-with-one-deletion/
 
-//we are using kadanes algo TWICE
-//once left to right (going forward...thus values stored in an array named f)
-//once right ot left (going backward...thus values stored in an array named b)
-//now in case we delete any element, then max subarray sum on its deletion will be (f[i-1] + b[i+1])....adding the max subarray sum on its left and right ends
-//2 more imp comments added in code below
+// for every index i:
+// 1. find f[i] -> max subarray sum which MUST include index i (fdw traversal, left to right)
+// 2. find b[i] -> max subarray sum which MUST include index i (bwd traversal, right to left)
+
+// for this we will simply run kadae's algo twice (from left to right, and right to left)
+// in this process, we will calculate:
+// 1. f[]
+// 2. b[]
+// 3. overall_max -> max subarray sum wihtout any deletion (basic kadane's algo)
 
 class Solution {
 public:
@@ -23,7 +27,7 @@ public:
             cur_max = max(v[i], cur_max + v[i]); 
             overall_max = max(overall_max, cur_max); 
   
-            f[i] = cur_max; 
+            f[i] = cur_max;
         }
         
         cur_max = overall_max = b[n - 1] = v[n - 1];
