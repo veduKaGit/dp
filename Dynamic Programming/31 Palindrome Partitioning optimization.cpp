@@ -25,7 +25,7 @@ public:
         for (int end = 0; end < n; ++end) {
             dp[end] = end; // max cuts
             for (int start = 0; start <= end; ++start) {
-                if (s[start] == s[end] && (end - start <= 2 || isPal[start + 1][end - 1])) {
+                if (s[start] == s[end] && (end - start <= 2 || isPal[start + 1][end - 1])) {  //logical
                     isPal[start][end] = true;
                     if (start == 0) {
                         dp[end] = 0;
