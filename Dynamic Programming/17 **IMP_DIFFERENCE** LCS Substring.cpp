@@ -1,3 +1,7 @@
+//can be done only by tabulation
+
+//recursive dp is O(N^3) - dp params are i, j, substr_len
+
 #include <bits/stdc++.h>
 using namespace std;
 
