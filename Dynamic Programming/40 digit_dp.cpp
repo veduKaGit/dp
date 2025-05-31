@@ -103,7 +103,16 @@
 // dp[i][sum][tight] = The total sum of digits possible when:
 // 1. You are at the i-th digit from the right (starting from least significant digit).
 // 2. The sum of digits so far is sum.
-// 3. for that particular 'tight'
+// 3. tight == 1 means the number being formed must not exceed the prefix of the input number.
+//    tight == 0 means the number being formed can be any valid number (no longer bounded).
+
+// VVIMP NOTE:
+// We store DP only when tight == 0 !!!
+// Because:
+// 1. When tight == 1, the number of future possibilities depends on the original number's digits — it changes with each different number.
+//    So, the state is not reusable, and memoizing it would lead to incorrect results.
+// 2. But when tight == 0, the digit bounds are free (0–9), so for a given (i, sum, 0), the state is reusable.
+
 
 
 
