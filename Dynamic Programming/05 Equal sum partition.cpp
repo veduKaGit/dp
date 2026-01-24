@@ -26,7 +26,8 @@ class Solution {
         
         //dp[i][j] = is it possible to make sum = j by including/excluding elements till index i
         vector<vector<bool>>dp(2, vector<bool>(total+1, false));
-        dp[0][0] = true;
+        dp[0][0] = true;  // possible to make sum = 0 with zero elements
+        // dp[0][k>0] => this is initialised to false => cant make >0 sum with zero elements
         
         for(int i=1; i<=n; i++){
             for(int j=1; j<=total; j++){
