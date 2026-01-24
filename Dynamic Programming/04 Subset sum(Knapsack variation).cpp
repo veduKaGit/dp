@@ -44,7 +44,7 @@ class Solution {
     bool isSubsetSum(vector<int>& arr, int sum) {
         int n = arr.size();
         
-        vector<vector<bool>>dp(2, vector<bool>(sum+1, false));  //NOTE: sum+1
+        vector<vector<bool>>dp(2, vector<bool>(sum+1, false));  //NOTE: sum+1 => bcz we consider sum = 0 as well
 		// dp[i][j] = is it possible to make sum = j, by including/excluding elemsnts till index i
         // dp[k][0] = true always (exclude all elements)
 		dp[0][0] = true;
