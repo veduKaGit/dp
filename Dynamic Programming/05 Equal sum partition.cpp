@@ -1,4 +1,8 @@
 // https://www.geeksforgeeks.org/partition-problem-dp-18/
+
+// almost same as subset-sum problem
+// and again, this can be OPTIMISED to be done in O(2*required_sum) SPACE complexity => 2 rows tabluation
+
 #include <bits/stdc++.h>
 using namespace std;
 
