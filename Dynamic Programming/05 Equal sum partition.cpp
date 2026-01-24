@@ -38,7 +38,7 @@ class Solution {
                 }
             }
             
-            for(int j=0; j<=total; j++)
+            for(int j=0; j<=total; j++)  // IMP => reuse
                 dp[0][j] = dp[1][j];
         }
         
