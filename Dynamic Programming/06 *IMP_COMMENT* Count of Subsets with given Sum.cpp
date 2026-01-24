@@ -66,3 +66,28 @@ class Solution {
 // Again 2 rows DP soln
 // reuse rows
 
+class Solution {
+  public:
+    int perfectSum(vector<int>& arr, int target) {
+        int n = arr.size();
+        
+        // dp[i][j] = number of subsets with sum=j, by including/excluding elements till index i
+        vector<vector<int>>dp(2, vector<int>(target+1, 0));
+        dp[0][0] = 1;
+        
+        for(int i=1; i<=n; i++){
+            for(int j=0; j<=target; j++){
+                if(j >= arr[i-1]){
+                    dp[1][j] = dp[0][j] + dp[0][j-arr[i-1]];
+                }else{
+                    dp[1][j] = dp[0][j];
+                }
+            }
+            
+            for(int j=0; j<=target; j++)
+                dp[0][j] = dp[1][j];
+        }
+        
+        return dp[1][target];
+    }
+};
