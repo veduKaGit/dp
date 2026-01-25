@@ -42,12 +42,14 @@ public:
             sum += x;
         if(target>sum || target<(-1*sum))
             return 0;
-        
+
+        // dp size is 2*sum+1 => bcz we can have from range {-sum, ... 0, ... sum}
+        // dp[i][j] = number of ways we can make sum=j by including/excluding elements till index i
         vector<vector<int>>dp(2, vector<int>(2*sum+1, 0));
-        dp[0][sum] = 1;
+        dp[0][sum] = 1;  // IMP => dp[0][sum]=1 => means we can make sum=0 with zero elements
 
         for(int i=1; i<=n; i++){
-            for(int j=0; j<=(2*sum); j++){
+            for(int j=0; j<=(2*sum); j++){  // imp=> 2*sum
                 dp[1][j] = 0;
                 if((j-arr[i-1])>=0)
                     dp[1][j] += dp[0][j-arr[i-1]];
@@ -60,6 +62,6 @@ public:
             }
         }
 
-        return dp[1][target+sum];
+        return dp[1][target+sum]; //imp (target+sum)
     }
 };
