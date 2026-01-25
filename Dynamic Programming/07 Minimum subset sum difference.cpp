@@ -1,3 +1,8 @@
+// again here, since dp is:
+// t[i][j] = t[i - 1][j - arr[i - 1]] || t[i - 1][j];
+// where we always have i, i-1
+// so this can be done in O(j) SPACE!!! => OPTIMISED
+
 #include <bits/stdc++.h>
 using namespace std;
 
