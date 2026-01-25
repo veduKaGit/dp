@@ -1,3 +1,6 @@
+// again this can be done in O(total_sum) space
+// DP requires only 2 rows
+
 // subset_sum1 + subset_sum2 = total_sum
 // subset_sum1 - subset_sum2 = diff
 //Use the above 2 eqn
