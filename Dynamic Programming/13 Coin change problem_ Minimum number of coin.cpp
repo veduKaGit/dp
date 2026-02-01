@@ -79,7 +79,7 @@ class Solution {
         dp[0] = 0;
         
         // NOTE: OUTER loop must be of 'sum', NOT 'ind'
-        // bcz when we do dp[cur_sum - coins[ind]], it should be pre-calculated in this loop
+        // bcz when we do (1+dp[cur_sum - coins[ind]]) => it should be pre-calculated in this loop
         for(int cur_sum=1; cur_sum<=sum; cur_sum++){
             for(int ind=0; ind<n; ind++){
                 if(cur_sum-coins[ind] >= 0)
