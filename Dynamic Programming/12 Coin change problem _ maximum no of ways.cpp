@@ -44,6 +44,7 @@ class Solution {
         // dp[i][j] = number of ways to make sum=j, by inclusing/excluding elements till index i
 		// dp[i][j] = dp[i-1][j] + dp[i][j-coins[i-1]]; => VVIMP => for 'take' case: dp[i], NOT dp[i-1]
 		// bcs we can take a single coin any number of times
+		// also coins[i-1] (instead of coins[i]) bcz we start from i=1 (used i=0 for initialisation)
         
         for(int i=1; i<=n; i++){
             for(int j=0; j<=sum; j++){
