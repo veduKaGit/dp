@@ -42,7 +42,7 @@ class Solution {
 		// similar to take/dont-take
 		// max(dont, take)
 		// take = dp[i][j-wt[i-1]] + val[i-1] => IMP!!! => dp[i], NOT dp[i-1], since un-bounded
-		// also val[i-1] and wt[i-1] bcz we start from i=1 (used i=0 for initialisation)
+		// also val[i-1] and wt[i-1] (instead of val[i], wt[i]) bcz we start from i=1 (used i=0 for initialisation)
         
         for(int i=1; i<=n; i++){
             for(int j=0; j<=capacity; j++){
