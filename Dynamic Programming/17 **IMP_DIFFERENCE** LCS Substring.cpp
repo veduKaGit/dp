@@ -1,41 +1,41 @@
-//can be done only by tabulation
-
 //recursive dp is O(N^3) - dp params are i, j, substr_len
 
-#include <bits/stdc++.h>
-using namespace std;
+// ==============================
 
-int LCSubstr(string X, string Y, int n, int m) {
-	int dp[n + 1][m + 1]; // DP - matrix
+//can be done only by tabulation
+// again this can be space optimised in tabulation
 
-  // base condition 
-	for (int i = 0; i <= n; i++)
-		for (int j = 0; j <= m; j++)
-			if (i == 0 || j == 0)
-				dp[i][j] = 0; //
+// dp[i][j] = longest common substring ending at index i for s1, and index j for s2
+// if (s1[i] == s2[j]) => dp[i][j] = 1 + dp[i-1][j-1]
+// else => dp[i][j] = 0
 
-  // choice diagram 
-	for (int i = 1; i <= n; i++)
-		for (int j = 1; j <= m; j++)
-			if (X[i - 1] == Y[j - 1]) // when both string's last char is same
-				dp[i][j] = 1 + dp[i - 1][j - 1]; // count the number and decrement the table 
-			else
-				dp[i][j] = 0; // variation from LCS(DP)
+// since we only use i, i-1 in dp
+// we can optimise in space
 
-	int mx = INT_MIN;  //**IMP DIFFERENCE**...since in the else part above, we returned zero (instead of max/min), thus we calculate max separately and return it as the final ans
-	for (int i = 0; i <= n; i++)
-		for (int j = 0; j <= m; j++)
-			mx = max(mx, dp[i][j]);
 
-	return mx;
-}
+class Solution {
+  public:
+    int longCommSubstr(string& s1, string& s2) {
+        int n = s1.size(), m = s2.size(), ans = 0;
+        vector<vector<int>>dp(2, vector<int>(m+1, 0));
+        
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=m; j++){
+                if(s1[i-1] == s2[j-1]) // i-1, j-1
+                {
+                    dp[1][j] = 1+dp[0][j-1]; //VVIMP => NO take/dont take here => since sbstr, we must take both
+                    ans = max(ans, dp[1][j]);
+                }
+                else
+                {
+                    dp[1][j] = 0; // since substr
+                }
+            }
 
-int main() {
-	string X, Y; cin >> X >> Y;
-	int n = X.length(), m = Y.length();
-
-	cout << LCSubstr(X, Y, n, m) << endl;
-	return 0;
-}
-
-// https://www.geeksforgeeks.org/longest-common-substring-dp-29/
+            for(int j=1; j<=m; j++)
+                dp[0][j] = dp[1][j];
+        }
+        
+        return ans;
+    }
+};
