@@ -23,7 +23,7 @@ class Solution {
             for(int j=1; j<=m; j++){
                 if(s1[i-1] == s2[j-1]) // i-1, j-1
                 {
-                    dp[1][j] = 1+dp[0][j-1]; //VVIMP => NO take/dont take here => since sbstr, we must take both
+                    dp[1][j] = 1+dp[0][j-1]; //VVIMP => NO take/dont_take here => since sbstr, we must take both
                     ans = max(ans, dp[1][j]);
                 }
                 else
