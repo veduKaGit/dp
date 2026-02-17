@@ -1,37 +1,33 @@
 // Given two strings s1 and s2
 // the task is to find the length of the shortest string that has both s1 and s2 as subsequences.
 
+// again this can be space optimised
 
-#include <bits/stdc++.h>
-using namespace std;
 
-int LCS(string X, string Y, int n, int m) {
-	int dp[n + 1][m + 1]; // DP - matrix
-
-	// base case of recursion --> for initialization of dp - matrix
-	for (int i = 0; i <= n; i++)
-		for (int j = 0; j <= m; j++)
-			if (i == 0 || j == 0)
-				dp[i][j] = 0;
-
-	for (int i = 1; i <= n; i++)
-		for (int j = 1; j <= m; j++)
-			if (X[i - 1] == Y[j - 1]) // when last character is same
-				dp[i][j] = 1 + dp[i - 1][j - 1];
-			else // when last character is not same -> pick max
-				dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
-
-	return dp[n][m];
-}
-
-int SCS(string X, string Y, int n, int m) {
-	return m + n - LCS(X, Y, n, m); // formula // n-> length of string x ; m-> length of string y
-}
-
-signed main() {
-	string X, Y; cin >> X >> Y;
-	int n = X.length(), m = Y.length();
-
-	cout << SCS(X, Y, n, m) << endl;
-	return 0;
-}
+class Solution {
+  public:
+    
+    int minSuperSeq(string &s1, string &s2) {
+        int n = s1.size(), m = s2.size();
+        
+        if(n<m)
+            swap(s1, s2);
+        
+        vector<vector<int>>dp(2, vector<int>(min(m,n)+1, 0));
+        
+        for(int i=1; i<=max(m,n); i++){
+            for(int j=1; j<=min(m,n); j++){
+                if(s1[i-1] == s2[j-1]){
+                    dp[1][j] = 1 + dp[0][j-1];
+                }else{
+                    dp[1][j] = max(dp[0][j], dp[1][j-1]);
+                }
+            }
+            
+            for(int j=1; j<=min(m,n); j++)
+                dp[0][j] = dp[1][j];
+        }
+        
+        return s1.size() + s2.size() - dp[1][min(n,m)];
+    }
+};
