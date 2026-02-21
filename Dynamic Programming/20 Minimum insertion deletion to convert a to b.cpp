@@ -1,3 +1,7 @@
+// NOTE: again, this can be done in:
+// time: O(N*M)
+// space: O(N) => OPTIMISED!!!!
+
 // Input: s1 = “heap”, s2 = “pea” 
 // Output: 3
 // Explanation: Minimum Deletion = 2 and Minimum Insertion = 1
