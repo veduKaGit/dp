@@ -2,6 +2,8 @@
 // time: O(N*M)
 // space: O(N) => OPTIMISED!!!!
 
+// haven't written space optimised code here => written that many times in the prev examples
+
 // Input: s1 = “heap”, s2 = “pea” 
 // Output: 3
 // Explanation: Minimum Deletion = 2 and Minimum Insertion = 1
