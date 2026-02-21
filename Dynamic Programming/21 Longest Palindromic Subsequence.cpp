@@ -1,3 +1,10 @@
+// NOTE: again, this can be done in:
+// time: O(N*M)
+// space: O(N) => OPTIMISED!!!!
+
+// haven't written space optimised code here => written that many times in the prev examples
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
