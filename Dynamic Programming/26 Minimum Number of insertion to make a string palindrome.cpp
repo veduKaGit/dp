@@ -1,39 +1,34 @@
-#include <bits/stdc++.h>
-using namespace std;
+// If a string already contains a long palindromic subsequence
+// we only need to insert characters to match the remaining ones.
 
-int LCS(string X, string Y, int n, int m) {
-	int dp[n + 1][m + 1]; // DP - matrix
+// ans = N − length of Longest PALINDROMIC Subsequence
 
-	// base case of recursion --> for initialization of dp - matrix
-	for (int i = 0; i <= n; i++)
-		for (int j = 0; j <= m; j++)
-			if (i == 0 || j == 0)
-				dp[i][j] = 0;
+// time: O(n*n)
+// space: O(n) => OPTIMISED!!!
 
-	for (int i = 1; i <= n; i++)
-		for (int j = 1; j <= m; j++)
-			if (X[i - 1] == Y[j - 1]) // when last character is same
-				dp[i][j] = 1 + dp[i - 1][j - 1];
-			else // when last character is not same -> pick max
-				dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
+class Solution {
+public:
+    int minInsertions(string s) {
+        int n = s.size();
+        
+        string rev = s;
+        reverse(s.begin(), s.end());
 
-	return dp[n][m];
-}
+        vector<vector<int>>dp(2, vector<int>(n+1, 0));
 
-int LPS(string X, int n) {
-	string rev_X = X;
-	reverse(rev_X.begin(), rev_X.end());
-	return LCS(X, rev_X, n, n);
-}
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=n; j++){
+                if(s[i-1] == rev[j-1]){
+                    dp[1][j] = 1 + dp[0][j-1];
+                }else{
+                    dp[1][j] = max(dp[1][j-1], dp[0][j]);
+                }
+            }
 
-int MinInsertForPallindrome(string X, int n) {
-	return n - LPS(X, n); // substract LPS from the length of string to get Minimum number of insertion to make a string palindrome
-}
+            for(int j=1; j<=n; j++)
+                dp[0][j] = dp[1][j];
+        }
 
-int main() {
-	string X, Y; cin >> X;
-	int n = X.length();
-
-	cout << MinInsertForPallindrome(X, n) << endl;
-	return 0;
-}
+        return n - dp[1][n];
+    }
+};
