@@ -1,7 +1,15 @@
 // basically we need to find if string a is a subsequence of string b
+
+// NOTE: NO need for dp
+// we can simply solve using 2 pointers (and iterate both strings)
+// but here just for an example we are solving by DP
+
 // my approach: we can simply find LCS of the strings, if LCS string == string a, then return true
 // aditya verma approach: simply find length of LCS, if length == a.length(), return true
 // both approaches are same logically.
+
+// this is old code
+// again here, we can space optimise => 0(N)
 
 
 #include <bits/stdc++.h>
