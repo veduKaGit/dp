@@ -1,3 +1,5 @@
+// https://www.geeksforgeeks.org/dsa/longest-repeating-subsequence/
+
 // basically we are taking LCS with the same string
 // and are not considering when i==j
 // thats it
