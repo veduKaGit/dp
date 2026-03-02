@@ -4,9 +4,9 @@
 // time and space: O(n*n)
 
 // dp[i] = minimum cuts needed to partition str[0..i] into palindromic substrings
-// If str[0..i] is a palindrome, no cut is needed (dp[i] = 0)
+// If str[0,i] is a palindrome, no cut is needed (dp[i] = 0)
 
-// for ALL j such that ( str[j] + str[j+1] ... + str[i-1] + str[i] ) is a PALINDROME, then:
+// for ALL j such that str[j,i] is a PALINDROME, then:
 // dp[i] = min(dp[i], 1 + dp[j-1])
 // this is a N*N loop
 
