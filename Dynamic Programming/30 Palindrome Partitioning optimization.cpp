@@ -5,10 +5,13 @@
 
 // dp[i] = minimum cuts needed to partition str[0..i] into palindromic substrings
 // If str[0,i] is a palindrome, no cut is needed (dp[i] = 0)
+// outer loop is on index i
 
 // for ALL j such that str[j,i] is a PALINDROME, then:
 // dp[i] = min(dp[i], 1 + dp[j-1])
-// this is a N*N loop
+// inner loop is on index j
 
-// so basically, we need to find for ALL str[a, b] if its a palindrome in O(N*N) time
+// now, how do we check if str[j,i] is a palindrome?
+// precompute it
+// NOTE: precompute in O(N*N) => VVIMP
 
