@@ -23,7 +23,7 @@
 // THATS ALL!! DONE!!
 
 // VVIMP TRICK => 
-// while precomputing if str[j,i] is a palindrome or not, the outer loop is on the substring length
+// while precomputing if str[j,i] is a palindrome or not, make the outer loop on the substring length
 // example when we check for length 5, its already precomputed for length 4 => so we can reuse that
 
 
