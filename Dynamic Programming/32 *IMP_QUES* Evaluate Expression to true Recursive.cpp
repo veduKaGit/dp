@@ -7,7 +7,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int Solve(string X, int i, int j, bool isTrue) {
+int Solve(string& X, int i, int j, bool isTrue) {
 	if (i >= j) {   //base case...only 1 element
 		if (isTrue)
 			return X[i] == 'T';
