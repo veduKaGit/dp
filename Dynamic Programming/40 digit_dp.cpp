@@ -118,6 +118,9 @@ long long dp[20][180][2];  //dp[index][sum][tight] ... remember we discussed abo
 
 void getDigits(long long x, vector <int> &digit)
 {
+	if(x == 0)
+		digit.push_back(0);
+
 	while (x)
 	{
 		digit.push_back(x%10);
