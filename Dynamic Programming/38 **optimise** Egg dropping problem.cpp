@@ -1,6 +1,7 @@
 // remember => egg drop = DP + BINARY SEARCH
 
-//OPTIMIZATION: use binary search instead of linear search!
+// OPTIMIZATION: use binary search instead of linear search!
+// direct binary search won't work if we have < log(N) eggs
 
 // dp[k][n] = minimum moves needed with k eggs and n floors remaining
 
