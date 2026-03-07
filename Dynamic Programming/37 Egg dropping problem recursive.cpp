@@ -8,8 +8,8 @@
 
 // This is kind of MCM approach
 
-// read code carefully, where we are taking MAX and MIN
-// imp for concept
+// We take MAX for worst case when selecting egg break / NOT break => since we don't know if it breaks on that floor or not
+// After that, we take MIN from all possible floors => since we already know the worst case values for all of them 
 
 #include <bits/stdc++.h>
 using namespace std;
