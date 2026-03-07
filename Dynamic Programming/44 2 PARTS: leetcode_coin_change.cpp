@@ -5,7 +5,6 @@
 // 1 <= coins[i] <= 2^31 - 1
 // 0 <= amount <= 10^4
 
-=========
 
 // dp[i][cur_amount] = min coins needed to make cur_amount using coins till index i
 // dp[i][cur_amount] = min(1 + dp[i][cur_amount-coins[i]], dp[i-1][cur_amount]);
