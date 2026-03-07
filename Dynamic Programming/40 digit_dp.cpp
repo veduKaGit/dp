@@ -107,12 +107,9 @@
 //    tight == 0 means the number being formed can be any valid number (no longer bounded).
 
 // VVIMP NOTE:
-// We store DP only when tight == 0 !!!
-// Because:
-// 1. When tight == 1, the number of future possibilities depends on the original number's digits — it changes with each different number.
-//    So, the state is not reusable, and memoizing it would lead to incorrect results.
-// 2. But when tight == 0, the digit bounds are free (0–9), so for a given (i, sum, 0), the state is reusable.
-
+// do memset(dp, -1, sizeof(dp)) => 2 times !!!!
+// once for G(b), once for G(a-1)
+// because those digits are diff => so dp values will be diff
 
 
 
@@ -134,12 +131,8 @@ long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 	if (idx == -1)  //base case
 		return sum;
 
-	if ( (dp[idx][sum][tight] != -1) && (tight != 1) )  // 2 condn => IMP => since tight==1 means aage ka nahi pata => calculate karna paega
-		return dp[idx][sum][tight];
-	
-	//one VVIMP thing to NOTE in this function => we are storing and calling DP ONLY when tight==0
-	//why?
-	//because DP parameters are just (idx, sum and tight) => tells idx index tak kya sum aaya hai => can be memoized ONLY when tight==0
+    if (dp[idx][sum][tight] != -1)
+        return dp[idx][sum][tight];
 
 	long long ret = 0;
 
@@ -152,22 +145,21 @@ long long digitSum(int idx, int sum, int tight, vector <int> &digit)
 		ret += digitSum(idx-1, sum+i, newTight, digit);
 	}
 
-	if(tight == 0)    //IMP => store ONLY when tight == 0
-		dp[idx][sum][tight] = ret;
-
-	return ret;
+	return dp[idx][sum][tight] = ret;
 }
 
 
 // Returns sum of digits in numbers from a to b.
 int rangeDigitSum(int a, int b)
 {
-	memset(dp, -1, sizeof(dp));
+	memset(dp, -1, sizeof(dp));   // memset 1st time
 
 	vector<int> digitA;
 	getDigits(a-1, digitA);   // (a-1) => NOT a
 
 	long long ans1 = digitSum(digitA.size()-1, 0, 1, digitA);
+
+	memset(dp, -1, sizeof(dp));   // memset 2nd time
 
 	vector<int> digitB;
 	getDigits(b, digitB);
