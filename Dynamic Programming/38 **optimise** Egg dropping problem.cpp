@@ -4,6 +4,9 @@
 
 // dp[k][n] = minimum moves needed with k eggs and n floors remaining
 
+// TIME: O(N * K * logN)
+// space: 0(K * N)
+
 class Solution {
 public:
     int find(int k,int n,vector<vector<int>> &memo)
