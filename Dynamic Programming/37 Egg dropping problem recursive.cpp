@@ -8,6 +8,9 @@
 
 // This is kind of MCM approach
 
+// read code carefully, where we are taking MAX and MIN
+// imp for concept
+
 #include <bits/stdc++.h>
 using namespace std;
 
