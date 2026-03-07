@@ -36,10 +36,11 @@
 class Solution {
 public:
     int superEggDrop(int k, int n) {
-        vector<vector<int>>dp(2, vector<int>(k+1, 0));
+        vector<vector<int>>dp(2, vector<int>(k+1, 0));  // space optimised
         int moves = 0;
 
-        while(dp[moves%2][k] < n){
+        while(dp[moves%2][k] < n)  // break when we can tests >= n floors
+        {
             moves++;
 
             for(int eggs = 1; eggs<=k; eggs++){
