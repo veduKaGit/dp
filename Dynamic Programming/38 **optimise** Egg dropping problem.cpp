@@ -2,6 +2,8 @@
 
 //OPTIMIZATION: use binary search instead of linear search!
 
+// dp[k][n] = minimum moves needed with k eggs and n floors remaining
+
 class Solution {
 public:
     int find(int k,int n,vector<vector<int>> &memo)
