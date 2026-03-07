@@ -6,6 +6,8 @@
 // 1 <= k <= 100
 // 1 <= n <= 10^4
 
+// This is kind of MCM approach
+
 #include <bits/stdc++.h>
 using namespace std;
 
