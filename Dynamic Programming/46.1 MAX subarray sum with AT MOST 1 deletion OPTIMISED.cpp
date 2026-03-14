@@ -10,6 +10,18 @@ we maintain 2 dp arrays
 // dp_keep[i] = max(arr[i], arr[i]+dp_keep[i-1])  => simple kadaned
 // dp_delete[i] = max(dp_keep[i-1], arr[i]+dp_delete[i-1])  => delete this element, element already deleted before index i
 
+// imp NOTE:
+// we might think:
+// dp_delete[i] = max(dp_keep[i-1], max(arr[i], arr[i]+dp_delete[i-1]))
+// but NO => we dont consider arr[i] alone in dp_delete
+// WHY?
+// then it means: Start a new subarray at i after already deleting something earlier
+// But that is invalid bcz:
+// If you start fresh at i
+// then the deleted element is NOT part of the subarray
+// So you are effectively counting a subarray with 0 deletions, which should belong to dp_keep
+
+
 class Solution {
 public:
     int maximumSum(vector<int>& arr) {
